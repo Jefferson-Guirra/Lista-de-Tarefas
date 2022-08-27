@@ -7,8 +7,7 @@ import { ProgressBar } from './components/ProgressBar'
 
 function App() {
   const [list, setList] = useState<Item[]>([
-    { id: 1, name: 'Comprar pão', done: false },
-    { id: 2, name: 'Fazer Caminhada', done: false }
+    {id:1,name:'comprar Pão',done:false}
   ])
 
   const handleTaskName = (TaskName: string) => {
@@ -16,28 +15,28 @@ function App() {
   }
 
   const excludeItemList = (value: number) => {
-    setList(list => {
-      return list.filter((item, index) => index !== value)
-    })
+    setList(list => (list.filter((item, index) => index !== value).map((item,index)=>{
+      item.id = index + 1
+      return item
+    }))
+    )
   }
 
   const managerDone = (value:number) =>{
     setList((list)=> list.map(item=>{
-      if(item.id === value + 1 && item.done === false){
+      if(item.id === value +1 && item.done === false){
         item.done = true
         return item
       }
-      if (item.id === value + 1 && item.done !== false) {
+      if (item.id === value + 1 && item.done === true) {
         item.done = false
+  
         return item
       }
         return item
       
     }))
   }
-
-
-
   return (
     <C.Container>
       <C.Area>
@@ -51,6 +50,7 @@ function App() {
             excludeItemList={excludeItemList}
             item={item}
             managerDone={managerDone}
+            list = {list}
           />
         ))}
       </C.Area>

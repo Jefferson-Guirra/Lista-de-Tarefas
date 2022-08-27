@@ -5,24 +5,27 @@ import Trash from '../../assets/delete.svg'
 type Props = {
   item: Item
   index: number
+  list:Item[]
   excludeItemList: (index: number) => void
   managerDone : (value:number) => void
   
 }
 
-export const ListItem = ({ item, index, excludeItemList,managerDone}: Props) => {
+export const ListItem = ({ item, index, excludeItemList,managerDone,list}: Props) => {
   const [isChecked, setIsChecked] = useState(item.done)
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
       managerDone(index)
+      
+      setIsChecked(e.target.checked)
   }
-
+ 
   useEffect(()=>{
     setIsChecked(item.done)
-  },[item.done])
+  },[list])
   
   return (
     <C.Container done={isChecked}>
-      <label htmlFor={item.name}>
+      <label htmlFor={item.id + ''}>
         <input
           type="checkbox"
           checked={isChecked}
