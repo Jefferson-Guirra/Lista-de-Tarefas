@@ -5,7 +5,7 @@ type Props = {
 }
 
 export const Container = styled.div(
-  ({ done }: Props) =>
+  (props: Props) =>
     `display: flex;
   background-color: #20212c;
   padding: 0.6rem;
@@ -13,13 +13,14 @@ export const Container = styled.div(
   margin-bottom: 0.6rem;
   alig-items: center;
   justify-content: space-between;
+  animation: anima-left 1s forwards;
 
   label {
     display: flex;
     alig-items: center;
     gap: .3rem;
     color: #ccc;
-    text-decoration: ${done ? 'line-through' : 'initial'}
+    text-decoration: ${props.done ? 'line-through' : 'initial'}
   }
   label input {
     width: 1.5rem;
@@ -44,6 +45,15 @@ export const Container = styled.div(
     }
     to{
       transform: initial
+    }
+  }
+
+  @keyframes anima-left{
+    from{
+      transform:translate3D(-500px,0,0)
+    }
+    to{
+      transform:initial;
     }
   }
 

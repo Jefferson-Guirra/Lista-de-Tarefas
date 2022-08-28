@@ -11,8 +11,8 @@ export const ProgressBar = ({ list }: Props) => {
   const containerProgress = document.querySelector(
     '.progressContainer'
   ) as HTMLDivElement
-  const [resize, setResize] = useState(false) // renderizar o componente no resize
-  let newArray: number[] = []
+  const [resize, setResize] = useState(false) // Renderizar o componente no resize
+  let newArray: number[] = [] // Armazenar tarefas concluidas
 
   const progressResize = () => {
     list.forEach((item, index) => {
@@ -23,13 +23,11 @@ export const ProgressBar = ({ list }: Props) => {
 
     let sizeProgress: number =
       containerProgress !== null
-        ? (containerProgress.clientWidth / list.length) * newArray.length 
+        ? (containerProgress.clientWidth / list.length) * newArray.length
         : 0
     if (sizeProgress !== 0) {
       sizeProgress = sizeProgress - 19.2 // 19.2 === padding do container
     }
-
-  
 
     return sizeProgress
   }
@@ -42,10 +40,7 @@ export const ProgressBar = ({ list }: Props) => {
     }, 200)
   )
   return (
-    <C.Container
-      size={progressResize()}
-      className="progressContainer"
-    >
+    <C.Container size={progressResize()} className="progressContainer">
       <h3>Progresso</h3>
       <span></span>
     </C.Container>

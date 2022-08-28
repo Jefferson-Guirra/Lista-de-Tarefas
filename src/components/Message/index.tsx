@@ -11,15 +11,15 @@ type Props = {
   list.length > 0 && item.name
 }*/
 export const Message = ({ item, list, textMessage }: Props) => {
-  const [message, setMessage] = useState(true)
+  const [cardMessage, setCardMessage] = useState(false)
   useEffect(() => {
-    setMessage(false)
+    setCardMessage(true)
     setTimeout(() => {
-      setMessage(true)
+      setCardMessage(false)
     }, 2000)
   }, [list.length])
   return (
-    <C.Container textMessage={textMessage} message={message}>
+    <C.Container textMessage={textMessage} message={cardMessage}>
       <div className='content'>
         <p>
           Tarefa {' '}

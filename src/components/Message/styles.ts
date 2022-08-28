@@ -17,11 +17,9 @@ export const Container = styled.div(
     text-align:center;
   }
 
-
-
   .content{
-    opacity: ${props.message ? '0' : '1'};
-    transform: translateX(${props.message ? '300px' : 'initial'});
+    opacity: ${props.message ? '1' : '0'};
+    transform: translateX(${props.message ? 'initial' : '300px'});
     transition: 1.5s;
     width: 15rem;
     padding:1rem .5rem;
@@ -29,17 +27,16 @@ export const Container = styled.div(
     border: 1px solid #555;
     background-color: #20212c;
     background-size: 400% 400%;
-
-
   }
+
   .content span{
     display:block;
-    opacity: ${props.message ? '0' : '1'};
+    opacity: ${props.message ? '1' : '0'};
     width:10px;
     height:5px;
     background-color: ${props.textMessage ? 'red' : 'green'};
     margin-top:.5rem;
-    animation: ${props.message ? '' : 'progress'} 1s forwards;
+    animation: ${props.message ? 'progress' : ''} 1s forwards;
   }
 
   @keyframes show-message{
@@ -50,7 +47,6 @@ export const Container = styled.div(
       opacity:0
     }
   }
-
 
   @keyframes progress{
     0% {
@@ -78,7 +74,6 @@ export const Container = styled.div(
     70% {
       width:70%
     }
-      
     80% {
       width:80%
     }
