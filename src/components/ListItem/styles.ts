@@ -13,7 +13,7 @@ export const Container = styled.div(
   margin-bottom: 0.6rem;
   alig-items: center;
   justify-content: space-between;
-  animation: anima-left 1s forwards;
+  animation: anima-left 1s ease;
 
   label {
     display: flex;
@@ -50,9 +50,11 @@ export const Container = styled.div(
 
   @keyframes anima-left{
     from{
+      opacity:0;
       transform:translate3D(-500px,0,0)
     }
     to{
+      opacity:initial;
       transform:initial;
     }
   }
