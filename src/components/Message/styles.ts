@@ -2,20 +2,45 @@ import styled from 'styled-components'
 type Props = {
   message: boolean
   textMessage: boolean
+  completedList: boolean
 }
-
-
 
 export const Container = styled.div(
   (props: Props) => `
+
   display:flex;
-  justify-content:flex-end;
-  padding-right: 1rem;
+  justify-content:space-between;
+  padding-inline: 2rem;
   color : white;
 
   p{
     text-align:center;
   }
+  .completed{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:.2rem;
+    transition: 1.5s;
+    min-width:13rem;
+    padding:1rem .5rem;
+    border-radius: .4rem;
+    border: 1px solid #555;
+    background-color: #20212c;
+    opacity: ${props.completedList ? '1' : '0'};
+    transform: translateX(${props.completedList ? 'initial' : '-300px'});
+  }
+
+  .completed p{
+    text-align:left;
+  }
+  .completed span{
+    display:flex;
+    width:2rem;
+    overflow:hidden;
+    animation:show-message 1.5s infinite linear;
+  }
+
 
   .content{
     opacity: ${props.message ? '1' : '0'};
@@ -26,7 +51,6 @@ export const Container = styled.div(
     border-radius: .4rem;
     border: 1px solid #555;
     background-color: #20212c;
-    background-size: 400% 400%;
   }
 
   .content span{
@@ -34,7 +58,7 @@ export const Container = styled.div(
     opacity: ${props.message ? '1' : '0'};
     width:10px;
     height:5px;
-    background-color: ${props.textMessage ? 'red' : 'green'};
+    background-color: ${props.textMessage ? 'green' : 'red'};
     margin-top:.5rem;
     animation: ${props.message ? 'progress' : ''} 1s forwards;
   }

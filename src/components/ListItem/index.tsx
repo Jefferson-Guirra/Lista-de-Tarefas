@@ -5,6 +5,7 @@ import Trash from '../../assets/delete.svg'
 type Ref = {
   current: boolean
 }
+
 type Props = {
   item: Item
   index: number
@@ -31,9 +32,9 @@ export const ListItem = ({
 
   const handleExclude = (e: React.MouseEvent<HTMLElement>) => {
     excludeItemList(index)
-    removedMessage.current = true
+    removedMessage.current = false
     setTimeout(() => {
-      removedMessage.current = false
+      removedMessage.current = true
     }, 500)
   }
 
@@ -53,7 +54,7 @@ export const ListItem = ({
         {item.name}
       </label>
       <button onClick={handleExclude} className="excludeItem">
-        <img src={Trash} alt="Delete" />
+        <img src={Trash} alt="" />
       </button>
     </C.Container>
   )

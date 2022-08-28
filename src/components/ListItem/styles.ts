@@ -29,10 +29,11 @@ export const Container = styled.div(
 
   button{
     border: none;
+    display:inline-block;
     width:1.7rem;
-    height:100%;
+    background-color:transparent;
+    heigth:100%;
     cursor:pointer;
-    background-color: transparent;
   }
 
   button:hover{

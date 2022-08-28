@@ -22,7 +22,7 @@ export const ProgressBar = ({ list }: Props) => {
     })
 
     let sizeProgress: number =
-      containerProgress !== null
+      containerProgress !== null && list.length > 0
         ? (containerProgress.clientWidth / list.length) * newArray.length
         : 0
     if (sizeProgress !== 0) {
