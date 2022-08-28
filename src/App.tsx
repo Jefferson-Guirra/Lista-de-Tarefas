@@ -1,14 +1,17 @@
 import * as C from './App.styles'
-import { useState,useCallback } from 'react'
+import { useState, useRef } from 'react'
 import { Item } from './types/Item'
 import { ListItem } from './components/ListItem'
 import { AddArea } from './components/AddArea'
 import { ProgressBar } from './components/ProgressBar'
+import { Message } from './components/Message'
+
 
 function App() {
   const [list, setList] = useState<Item[]>([
-    {id:1,name:'comprar Pão',done:false}
+    {id:1,name:'Comprar Pão',done:false}
   ])
+  const textMessage = useRef(false)
 
   const handleTaskName = (TaskName: string) => {
     setList([...list, { id: list.length + 1, name: TaskName, done: false }])
@@ -39,6 +42,7 @@ function App() {
   }
   return (
     <C.Container>
+      <Message item={list[list.length - 1]} list={list} textMessage ={textMessage.current} />
       <C.Area>
         <C.Header>Lista de Tarefas</C.Header>
         <ProgressBar list={list} />
@@ -50,7 +54,8 @@ function App() {
             excludeItemList={excludeItemList}
             item={item}
             managerDone={managerDone}
-            list = {list}
+            list={list}
+            removedMessage={textMessage}
           />
         ))}
       </C.Area>

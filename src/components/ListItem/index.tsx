@@ -2,21 +2,32 @@ import * as C from './styles'
 import React, { useState, ChangeEvent, useEffect } from 'react'
 import { Item } from '../../types/Item'
 import Trash from '../../assets/delete.svg'
+type Ref = {
+  current:boolean
+}
 type Props = {
   item: Item
   index: number
-  list:Item[]
+  list: Item[]
+  removedMessage: Ref
   excludeItemList: (index: number) => void
-  managerDone : (value:number) => void
-  
+  managerDone: (value: number) => void
 }
 
-export const ListItem = ({ item, index, excludeItemList,managerDone,list}: Props) => {
+export const ListItem = ({ item, index, excludeItemList,managerDone,removedMessage,list}: Props) => {
   const [isChecked, setIsChecked] = useState(item.done)
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
       managerDone(index)
       
       setIsChecked(e.target.checked)
+  }
+
+  const handleExclude= (e:React.MouseEvent<HTMLElement>)=>{
+    excludeItemList(index)
+      removedMessage.current = true
+        setTimeout(() => {
+          removedMessage.current = false
+        }, 500)
   }
  
   useEffect(()=>{
@@ -34,7 +45,7 @@ export const ListItem = ({ item, index, excludeItemList,managerDone,list}: Props
         />
         {item.name}
       </label>
-      <button onClick={()=> excludeItemList(index)} className="excludeItem">
+      <button onClick={handleExclude} className="excludeItem">
         <img src={Trash} alt="Delete" />
       </button>
     </C.Container>
