@@ -6,7 +6,8 @@ type Props = {
 
 export const Container = styled.div(
   (props: Props) =>
-    `display: flex;
+    `
+  display: flex;
   background-color: #20212c;
   padding: 0.6rem;
   border-radius: 0.6rem;

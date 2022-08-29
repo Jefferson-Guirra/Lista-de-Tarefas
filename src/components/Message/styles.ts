@@ -21,14 +21,13 @@ export const Container = styled.div(
     align-items:center;
     justify-content:center;
     gap:.2rem;
-    transition: 1.5s;
     min-width:13rem;
     padding:1rem .5rem;
     border-radius: .4rem;
     border: 1px solid #555;
     background-color: #20212c;
-    opacity: ${props.completedList ? '1' : '0'};
-    transform: translateX(${props.completedList ? 'initial' : '-300px'});
+    opacity: 0;
+    animation : ${props.completedList ? 'anima-completed' : ''} 6s forwards;
   }
 
   .completed p{
@@ -71,6 +70,22 @@ export const Container = styled.div(
     }
     to{
       opacity:initial;
+    }
+  }
+
+
+  @keyframes anima-completed{
+    0%{
+      opacity:1;
+      transform: translateX(-300px)
+    }
+    50%{
+      opacity:1;
+      transform: initial;
+    }
+    100%{
+      transform: translateX(-300px)
+      
     }
   }
 
