@@ -2,12 +2,12 @@
 
 <!---Esses são exemplos. Veja https://shields.io para outras pessoas ou para personalizar este conjunto de escudos. Você pode querer incluir dependências, status do projeto e informações de licença aqui--->
 
-<img src="src/Assets/dogs-read-me.JPG" alt="Doctor Care">
+<img src="src/assets/lista-de-tarefas.JPG" alt="Doctor Care">
 
 >Projeto criado para aramazenar seu afezeres diarios.
 
 
-<h4 align="center"><a href="https://dogs-rede-social-cachorro.netlify.app/" target="_blank">Clique para visitar o projeto</a></h4>
+<h4 align="center"><a href="https://projeto-06-lista-de-tarefas.netlify.app/" target="_blank">Clique para visitar o projeto</a></h4>
 
 ## 🚀  Ferramentas usadas:
 
