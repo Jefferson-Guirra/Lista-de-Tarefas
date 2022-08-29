@@ -4,7 +4,7 @@
 
 <img src="src/assets/lista-de-tarefas.JPG" alt="Doctor Care">
 
->Projeto criado para aramazenar seu afezeres diarios.
+>Projeto criado para aramazenar seu afezeres diários.
 
 
 <h4 align="center"><a href="https://projeto-06-lista-de-tarefas.netlify.app/" target="_blank">Clique para visitar o projeto</a></h4>
