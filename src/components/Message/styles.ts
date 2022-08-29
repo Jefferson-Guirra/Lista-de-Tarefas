@@ -38,7 +38,9 @@ export const Container = styled.div(
     display:flex;
     width:2rem;
     overflow:hidden;
-    animation:show-message 1.5s infinite linear;
+    opacity: ${props.completedList ? '1' : '0'};
+    transform: translateX(${props.completedList ? 'initial' : '-300px'});
+    animation: show-message 1s infinite linear;
   }
 
 
@@ -65,12 +67,13 @@ export const Container = styled.div(
 
   @keyframes show-message{
     from{
-      opacity:1
+      opacity:0;
     }
     to{
-      opacity:0
+      opacity:initial;
     }
   }
+
 
   @keyframes progress{
     0% {
