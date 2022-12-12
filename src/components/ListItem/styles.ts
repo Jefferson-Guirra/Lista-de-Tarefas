@@ -19,13 +19,15 @@ export const Container = styled.div(
   label {
     display: flex;
     alig-items: center;
+    justify-content:center;
     gap: .3rem;
     color: #ccc;
-    text-decoration: ${props.done ? 'line-through' : 'initial'}
+    text-decoration: ${props.done ? 'line-through' : 'initial'};
+    font-size:1.3rem;
+
   }
   label input {
-    width: 1.5rem;
-    height: 1.5rem;
+    width:1.5rem;
   }
 
   button{
@@ -37,18 +39,21 @@ export const Container = styled.div(
     cursor:pointer;
   }
 
-  button:hover{
-    animation: showDelete .5s forwards
+  button:hover img{
+    animation: show-pop 1s infinite linear;
   }
 
-  @keyframes showDelete{
-    from{
-      transform: rotate(-45deg)
-    }
-    to{
-      transform: initial
-    }
+  @keyframes show-pop{
+  0%{
+    transform: scale(1,1);
   }
+  50%{
+    transform: scale(1.1,1.1);
+  }
+  100%{
+    transform: scale(1,1);
+  }
+}
 
   @keyframes anima-left{
     from{
